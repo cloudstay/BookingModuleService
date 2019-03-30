@@ -2,7 +2,7 @@ var express  = require('express');
 var app = express();
  
 app.get('/', function (req, res) {
-  res.send('Hello World')
+  res.send('Hello World!!!')
 });
  
 // app.listen(3005);
@@ -22,3 +22,10 @@ app.use(logger('dev')); // Log requests to API using morgan
 app.use(cors());
 
 var db = require('../database');
+//_______________________________________________
+var faker = require ('faker');
+
+// console.log(faker.date.past());
+console.log(faker.date.recent());
+var date = (faker.date.past());
+console.log(Date.parse(date));
