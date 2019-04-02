@@ -1,10 +1,10 @@
 const express = require('express');
 const supertest = require('supertest');
 // import request from './request';
-const Listing = require('../database/schema')
+const Reservations = require('../database/index.js')
 
 test('Expect schema makes a new  object', () => {
-    expect(typeof new Listing).toBe('object');
+    expect(typeof new Reservations).toBe('object');
 });
 
 
