@@ -1,5 +1,5 @@
 # Project Name
-// git push origin brancgName!!!!!!!!!!!!!
+// git push origin branchName!!!!!!!!!!!!!
 > Project description
 
 ## Related Projects
