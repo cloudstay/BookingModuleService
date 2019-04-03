@@ -1,14 +1,11 @@
 var mongoose = require('mongoose');
 const db = mongoose.connection;
 
-const server = '127.0.0.1:27017'; // call your database 'reservations'
+const server = '127.0.0.1:27017';
 const database = 'reservations'
 mongoose.connect(`mongodb://${server}/${database}`,{useNewUrlParser: true});
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('Database is connected via Mongoose');
-});
 
 // this schema below is for pushing new reservations
 // for more interactive real website with POST requests
@@ -40,6 +37,18 @@ var reservationSchema = new mongoose.Schema({
     to_date: Date
   });
 
-var Reservations = mongoose.model('Reservations', reservationSchema);
+var Reservation = mongoose.model('Reservation', reservationSchema);
 
-module.exports = Reservations;
+getData = (params, callback) => {
+  Reservation.find({listing_id: params}, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      // console.log(data);
+      callback(data);
+    }
+  });
+}
+module.exports.getData = getData;
+module.exports.reservations = Reservation;
+module.exports.schema = reservationSchema;

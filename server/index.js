@@ -12,7 +12,7 @@ app.listen(port, function() {
   console.log(`Listening on port: ${port}`);
 })
 //______________________________________________
-var getData = require('../database/getData.js');
+var db = require('../database/index.js');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -30,5 +30,13 @@ app.get('/api/rooms', function(req,res) {
   var callback = function(result) {
     res.send(result);
   };
-  getData(query, callback);
+  // error first pattern DOES NOT work here, my data goes into err statement
+  // var callback = (error, result) => {
+  //   if (error){
+  //     console.log(error);
+  //   } else {
+  //     res.send(result);
+  //   }
+  // }
+  db.getData(query, callback);
 })
