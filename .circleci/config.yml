@@ -3,20 +3,20 @@ jobs:
   build:
     docker:
       - image: circleci/node:11.12.0
+      - image: mongo:4.0.3
     steps:
       - checkout
-      - run: npm install
-      - run: npm run test
-  # test:
-  #   docker:
-  #     - image: circleci/node:11.12.0
-  #   steps:
-  #     - checkout
-  #     - run: npm test
-  
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: 
+          name: install all dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: 
+          name: run jest
+          command: npm run test
+      
