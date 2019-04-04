@@ -1,3 +1,14 @@
+import React from 'react';
+
 function Head(props) {
-    return <h1>Hello, {props.cost}, {props.rating}</h1>;
+    return (
+        <div>
+            <div>
+                <span>$</span><span>{props.cost}</span><span>per night</span>
+            </div>
+            <span>{props.rating} stars</span>
+        </div>
+    )
 }
+
+export default Head;

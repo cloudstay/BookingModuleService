@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Head from './Head.jsx';
+import Reservation from './Reservation.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -21,7 +22,8 @@ class App extends React.Component {
             data: { listing_id: "120"},
             success: (data) => {
                 console.log('Success');
-                var data = JSON.parse(data);
+                console.log(data);
+                // var data = JSON.parse(data);
                 this.setState({
                     listing: data[0].listing_id,
                     masOcc: data[0].max_occupancy,
@@ -39,8 +41,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-            <div>Hello!</div>
-            {/* <div><Head cost={this.state.cost} rating={this.state.rating}/></div> */}
+                <div><Head cost={this.state.cost} rating={this.state.rating}/></div>
+                <div><Reservation /></div>
+                <div></div>
             </div>
         );
     }
