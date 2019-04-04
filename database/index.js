@@ -33,13 +33,14 @@ var reservationSchema = new mongoose.Schema({
     listing_id: String,
     max_occupancy: Number,
     cost_per_night: Number,
+    rating: Number,
     from_date: Date,
     to_date: Date
   });
 
 var Reservation = mongoose.model('Reservation', reservationSchema);
 
-getData = (params, callback) => {
+function getData(params, callback) {
   Reservation.find({listing_id: params}, (error, data) => {
     if (error) {
       console.log(error);

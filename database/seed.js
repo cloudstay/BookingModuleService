@@ -23,7 +23,7 @@ var seedData = function() {
         var listing = i.toString();
         var maxOcc = Math.ceil(Math.random() * 6);
         var cost = Math.ceil(Math.random() * 300);
-
+        var rating = Math.ceil(Math.random() * 5);
 
         var inputs = Math.ceil(Math.random() * 10); // for each listing generate a random number of reservations
         for (var j = 0; j < inputs; j++) {
@@ -35,7 +35,7 @@ var seedData = function() {
                 listing_id: listing,
                 max_occupancy: maxOcc,
                 cost_per_night: cost,
-
+                rating: rating,
                 from_date: randomDate,
                 to_date: nextDate
 

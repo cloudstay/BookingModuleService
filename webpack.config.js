@@ -2,13 +2,13 @@ const path = require('path');
 
 module.exports = {
   // where is the base of our app located
-  entry: path.resolve(__dirname, 'src/index.jsx'),
+  entry: path.resolve(__dirname, './client/index.jsx'),
   // path: path.join(__dirname, 'dist')
   output: {
     // what we want our bundle to be called
     filename: 'bundle.js',
     // where we want our bundle to live
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, './public/dist'),
   },
   module: {
     rules: [
