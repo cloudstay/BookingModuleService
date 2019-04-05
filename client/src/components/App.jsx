@@ -1,7 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import Head from './Head.jsx';
-import Reservation from './Reservation.jsx';
+import Reservations from './Reservations.jsx';
+import Test from './Test.jsx';
+import TestCalendar from './TestCalendar.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -42,8 +44,9 @@ class App extends React.Component {
         return (
             <div>
                 <div><Head cost={this.state.cost} rating={this.state.rating}/></div>
-                <div><Reservation /></div>
-                <div></div>
+                <div><Reservations /></div>
+                {/* <div><Test /></div> */}
+                {/* <div><TestCalendar /></div> */}
             </div>
         );
     }

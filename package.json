@@ -24,15 +24,19 @@
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "react": "^16.8.6",
+    "react-calendar": "^2.18.1",
+    "react-datepicker": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "reactdom": "^2.0.0",
+    "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.7.0",
+    "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -45,6 +49,7 @@
     "puppeteer": "^1.14.0",
     "puppeteer-core": "^1.14.0",
     "redux-devtools": "^3.5.0",
+    "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
