@@ -1,8 +1,8 @@
-var Reservations = require ('./index.js');
+var db = require ('./index.js');
 var faker = require ('faker');
 
 // helper function 
-function addDays(date) { // 
+function addDays(date) {
     // get date(day of the month)
     var day = date.getDate(); // returns a number
 
@@ -13,7 +13,7 @@ function addDays(date) { //
 
     return newdate;
     // return newdate.toJSON(); // change to string
-};``
+};
 
 var seedData = function() {
 
@@ -23,19 +23,19 @@ var seedData = function() {
         var listing = i.toString();
         var maxOcc = Math.ceil(Math.random() * 6);
         var cost = Math.ceil(Math.random() * 300);
-
+        var rating = Math.ceil(Math.random() * 5);
 
         var inputs = Math.ceil(Math.random() * 10); // for each listing generate a random number of reservations
         for (var j = 0; j < inputs; j++) {
             // var randomDate = time[(Math.floor(Math.random() * time.length))];
             var randomDate = faker.date.between('2019-01-01T16:13:38.924Z', '2019-05-31T16:13:38.924Z');
             var nextDate = addDays(randomDate);
-            // console.log(Reservations);
-            var input = new Reservations({
+            // console.log(db.reservations);
+            var input = new db.reservations({
                 listing_id: listing,
                 max_occupancy: maxOcc,
                 cost_per_night: cost,
-
+                rating: rating,
                 from_date: randomDate,
                 to_date: nextDate
 
